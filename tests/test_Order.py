@@ -2,17 +2,22 @@ import pytest
 from Order import Order
 from Drink import Drink
 
-@pytest.fixture
-def drink_a():
-    return Drink('pokeacola', {'blueberry', 'lime'}, 3)
+# Fixtures that caused an issue when used
+# @pytest.fixture
+# def drink_a():
+#     return Drink('pokeacola', {'blueberry', 'lime'}, 3)
 
-@pytest.fixture
-def drink_b():
-    return Drink('hill fog', {'cherry'}, 2)
+# @pytest.fixture
+# def drink_b():
+#     return Drink('hill fog', {'cherry'}, 2)
 
-@pytest.fixture
-def drink_c():
-    return Drink('leaf wine', {'strawberry', 'mint', 'lemon'}, 2)
+# @pytest.fixture
+# def drink_c():
+#     return Drink('leaf wine', {'strawberry', 'mint', 'lemon'}, 2)
+
+drink_a = Drink('pokeacola', {'blueberry', 'lime'}, 3)
+drink_b = Drink('hill fog', {'cherry'}, 2)
+drink_c = Drink('leaf wine', {'strawberry', 'mint', 'lemon'}, 2)
 
 @pytest.fixture
 def test_order():
