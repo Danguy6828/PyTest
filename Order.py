@@ -1,4 +1,4 @@
-from Drink import Drink, Base, Flavor, Size
+from Drink import Drink
 
 class Order:
     """Class that takes in multiple Drink objects to create an Order."""

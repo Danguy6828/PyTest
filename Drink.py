@@ -1,8 +1,7 @@
 from enum import Enum
+
 class Base(Enum):
-    """
-    Enumerator that holds all bases of a drink
-    """
+    """Enumerator that holds all bases of a drink."""
     WATR = 'Water'
     SBRI = 'Sbrite'
     POKE = 'Pokeacola'
@@ -11,9 +10,7 @@ class Base(Enum):
     LEAF = 'Leaf Wine'
 
 class Flavor(Enum):
-    """
-    Enumerator that holds all flavors of a drink
-    """
+    """Enumerator that holds all flavors of a drink."""
     LEMN = 'Lemon'
     CHER = 'Cherry'
     STRA = 'Strawberry'
@@ -22,9 +19,7 @@ class Flavor(Enum):
     LIME = 'Lime'
 
 class Size(Enum):
-    """
-    Enumerator that holds all sizes of a drink
-    """
+    """Enumerator that holds all sizes of a drink."""
     SML = 'Small'
     MED = 'Medium'
     LRG = "Large"
