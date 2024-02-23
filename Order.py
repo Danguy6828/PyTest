@@ -1,4 +1,5 @@
 from Drink import Drink
+from Food import Food
 
 class Order:
     """Class that takes in multiple Drink objects to create an Order."""
@@ -15,7 +16,7 @@ class Order:
         return len(self._items)
 
     def get_total(self):
-        """Function to calculate the totals for only Drinks an order."""
+        """Function to calculate the totals for only Drinks and Food in an order."""
         totals = []
         for item in self._items:
             totals.append(item.get_total())
@@ -47,14 +48,24 @@ class Order:
         """Function the send an order as raw data to a 'recipt'."""
         recipt = ''
         for index, item in enumerate(self._items, start=1):
-            list_flavor = []
-            for flavor in item.get_flavors():
-                list_flavor.append(f'{flavor.value}')
-            recipt += (f'Drink: #{index}:\n'
-                       f'Base: {item.get_base().value}\n'
-                       f'Flavor(s):{list_flavor}\n'
-                       f'Cost: ${item.get_total()}\n'
-                       '\n')
+            if isinstance(item, Drink):
+                list_flavor = []
+                for flavor in item.get_flavors():
+                    list_flavor.append(f'{flavor.value}')
+                recipt += (f'Drink: #{index}:\n'
+                        f'Base: {item.get_base().value}\n'
+                        f'Flavor(s):{list_flavor}\n'
+                        f'Cost: ${item.get_total()}\n'
+                        '\n')
+            if isinstance(item, Food):
+                list_topping = []
+                for topping in item.get_toppings():
+                    list_topping.append(f'{topping.value}')
+                recipt += (f'Food: #{index}:\n'
+                        f'Type: {item.get_type().value}\n'
+                        f'Topping(s):{list_topping}\n'
+                        f'Cost: ${item.get_total()}\n'
+                        '\n')
         recipt += (f'Tax: ${self.calc_tax()}\n'
                    f'Total: ${self.get_true_total()}\n')
         return recipt

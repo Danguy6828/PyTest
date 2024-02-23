@@ -71,7 +71,7 @@ class Drink:
         return self._size
 
     def set_flavors(self, new_flavors:set):
-        """Function to set the flavors a Drink object."""
+        """Function to set the flavors in a Drink object."""
         if all(flavor in Flavor for flavor in new_flavors):
             self._flavors = set(new_flavors)
         else:
