@@ -1,5 +1,6 @@
 from Drink import Drink
 from Food import Food
+from Storm import Storm
 
 class Order:
     """Class that takes in multiple Drink objects to create an Order."""
@@ -63,6 +64,15 @@ class Order:
                     list_topping.append(f'{topping.value}')
                 recipt += (f'Food: #{index}:\n'
                         f'Type: {item.get_type().value}\n'
+                        f'Topping(s):{list_topping}\n'
+                        f'Cost: ${item.get_total()}\n'
+                        '\n')
+            if isinstance(item, Storm):
+                list_topping = []
+                for topping in item.get_toppings():
+                    list_topping.append(f'{topping.value}')
+                recipt += (f'Ice Storm: #{index}:\n'
+                        f'Flavor: {item.get_flav().value}\n'
                         f'Topping(s):{list_topping}\n'
                         f'Cost: ${item.get_total()}\n'
                         '\n')
